@@ -1,0 +1,556 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Amazon Shopping</title>
+
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../Fonts/css/all.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+
+
+</head>
+
+<body class="me-4 ms-4 mb-5">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark sticky-top ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../javascript/amazonShopping.html">
+                <img src="../assets/image/amazon logo 3.png" width="150" height="50">
+            </a>
+            <button class="navbar-toggler btn-warning" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon "></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav  mb-2 mb-lg-0">
+                    <li class="nav-item ">
+                        <a class="nav-link active text-white" aria-current="page" href="#">
+
+                            <div class="px-3">Deliver to</div>
+                            <span><i class="fas fa-map-marker-alt"></i></span>
+                            <span>Jaipur 302015</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item ">
+                        <div class="input-group pt-2 ps-5">
+                            <select id="selecttxt" class="input-group-text ">
+
+
+                            </select>
+
+                            <input type="text" class="form-control  ">
+                            <button class="btn btn-warning">
+                                <span class="fa fa-search"></span>
+                            </button>
+
+                        </div>
+                    </li>
+                    <li class="nav-item p-3 ps-5">
+
+                        <select id="productslt" class="bg-warning ">
+
+
+
+
+
+
+                        </select>
+
+
+                    </li>
+
+                    <li class="nav-item text-white ps-5 pe-4 pt-2">
+                        <div class="dropdown">
+                            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="fas fa-flag text-danger"></span>&nbsp;Lang
+                            </button>
+                            <ul class="dropdown-menu bg-info" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="#">Hindi</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Eng(us)</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Eng(uk)</a></li>
+                            </ul>
+                        </div>
+
+
+                    </li>
+
+
+                    <li class="nav-item ">
+                        <button id="cartshow" class="btn btn-warning mt-2 ms-5" data-bs-toggle="modal"
+                            data-bs-target="#cartitems">
+                            <span class="fa fa-shopping-cart"></span>
+                            [<span id="lblCount"></span>] Your Cart Items
+                        </button>
+                    </li>
+                    <li class="nav-item mt-2 ms-5">
+                        <a href="../javascript/signshooping.html" class="nav-link text-white ">
+                            <span class="fa fa-sign-in-alt text-success "></span>&nbsp;Sign-in
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </div>
+        </div>
+    </nav>
+
+    <!--  <img src="../assets/image/some.png" width="100%">
+          <img src="../assets/image/some 2.png" width="100%">
+          <img src="../assets/image/some 3.png" width="100%"> -->
+
+
+    <div class="carousel carousel-dark slide" data-bs-ride="carousel" id="topbanner">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="3000">
+                <img src="../assets/image/some 3.png" class="d-block w-100">
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+                <img src="../assets/image/some 2.png" class="d-block w-100">
+
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+                <img src="../assets/image/some.png" class="d-block w-100 h-300">
+            </div>
+
+        </div>
+        <!-- this is for next and prev button on slide  -->
+        <button class="carousel-control-prev" data-bs-target="#topbanner" dat-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" data-bs-target="#topbanner" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+        <!-- this for indicators provided on banner of image  -->
+        <div class="carousel-indicators">
+            <button class="active" data-bs-target="#topbanner" data-bs-slide-to="0"></button>
+            <button data-bs-target="#topbanner" data-bs-slide-to="1"></button>
+            <button data-bs-target="#topbanner" data-bs-slide-to="2"></button>
+        </div>
+
+    </div>
+
+    <!-- this contain mid section of cards -->
+    <section>
+        <!-- accordian for preview of product -->
+
+        <div class="accordion" id="product details">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" data-bs-toggle="collapse"
+                        data-bs-target="#productpreview"><b>Product preview</b< /button>
+
+                </h2>
+                <div id="productpreview" class="accordion-collapse collapse show">
+                    <div class="accordion-body ">
+
+
+                        <div class="card text-center ">
+                            <div class=" card-content">
+                                <div class="card-header bg-primary">
+                                    <h2 id="lblname"></h2>
+                                </div>
+                                <div class="card-body">
+                                    <img id="lblphoto" width="200px" height="200px">
+                                    <p class="card-text" id="lblprice"></p>
+
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-danger" id="addcart">Add To Cart</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- end of accodian -->
+
+
+
+        <div class="container-fluid" id="midsection">
+
+            <div class="row ms-2 mt-3 ">
+                <div class="col-4 mt-3 mb-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Food & beverages</h3>
+                        </div>
+                        <div class="card-body mt-4 pt-4">
+                            <div class="row ms-2 me-2   justify-content-between text-center">
+                                <div class="col-md-5 rounded border border-2 p-1 ">
+                                    <img src="../assets/image/oats.png" width="100px" height="120">
+                                    <p class="card-text">Cereals & Oats</p>
+                                </div>
+                                <div class="col-md-5 rounded border border-2 p-1 ">
+                                    <img src="../assets/image/coffe.png" width="90px" height="120">
+                                    <p class="card-text">Tea & Coffee</p>
+                                </div>
+
+                                <div class="col-md-5 mt-2 rounded border border-2 p-1 ">
+                                    <img src="../assets/image/honey.png" width="100px" height="120">
+                                    <p class="card-text">Honey & Spreads</p>
+                                </div>
+                                <div class="col-md-5 rounded border border-2 mt-2 p-1">
+                                    <img id="snacks" src="../assets/image/snacks.png" width="100px" height="120">
+                                    <p class="card-text">Snacks Store</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card-footer text-center text-danger">
+                            <p>see more...</p>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="col-4 mt-3 mb-3">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Styles for Women | Up to</h3>
+                            <h3 class="card-subtitle">70% off</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row ms-2 me-2   justify-content-between text-center">
+                                <div class="col-md-5 rounded border border-2 p-1 ">
+                                    <img src="../assets/image/women.png" width="100px" height="120">
+                                    <p class="card-text">Women's Clothing
+                                    </p>
+                                </div>
+                                <div class="col-md-5 rounded border border-2 p-1 ">
+                                    <img src="../assets/image/woman1.png" width="90px" height="120">
+                                    <p class="card-text">
+                                        Footwear+Handbag
+                                    </p>
+                                </div>
+
+                                <div class="col-md-5 mt-2 rounded border border-2 p-1 ">
+                                    <img src="../assets/image/woman2.png" width="100px" height="120">
+                                    <p class="card-text">Watches</p>
+                                </div>
+                                <div class="col-md-5 rounded border border-2 mt-2 p-1">
+                                    <img id="snacks" src="../assets/image/woman3.png" width="100px" height="120">
+                                    <p class="card-text">
+                                        Fashion jewellery
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="card-footer text-center text-primary">
+                            <p>View All Offers</p>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="col-4 mt-3 me-auto mb-3">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Styles for Men | Up to <br>80% off</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row ms-2 me-2   justify-content-between text-center">
+                                <div class="col-md-5 rounded border border-2 p-1 ">
+                                    <img src="../assets/image/men1.png" width="100px" height="120">
+                                    <p class="card-text">Clothing</p>
+                                </div>
+                                <div class="col-md-5 rounded border border-2 p-1 ">
+                                    <img src="../assets/image/men2.png" width="90px" height="120">
+                                    <p class="card-text">Footwear</p>
+                                </div>
+
+                                <div class="col-md-5 mt-2 rounded border border-2 p-1 ">
+                                    <img src="../assets/image/men3.png" width="100px" height="120">
+                                    <p class="card-text">Watches</p>
+                                </div>
+                                <div class="col-md-5 rounded border border-2 mt-2 p-1">
+                                    <img id="snacks" src="../assets/image/men4.png" width="100px" height="120">
+                                    <p class="card-text">Bags & Luggage</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card-footer text-center text-primary">
+                            <p>View All Offers</p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+
+        <div class="container-fluid mb-5 mt-3">
+            <div class="row">
+
+                <div class="col">
+
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3>Pay your credit card bills <br>on Amazon</h3>
+                            </div>
+                            <div class="card-body text-center">
+                                <img src="../assets/image/cerdit card.png">
+                            </div>
+                            <div class="card-footer">
+
+                                <p class="text-center text-primary">Pay now</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </div>
+
+
+                <div class="col">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3>Amazon Pay | Buy Google<br> Play recharge code now</h3>
+                            </div>
+                            <div class="card-body text-center">
+                                <img src="../assets/image/recharge.png">
+                            </div>
+                            <div class="card-footer">
+
+                                <p class="text-center text-primary">Pay now</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3>Book tickets for essential<br> travel</h3>
+                            </div>
+
+                            <div class="card-body ">
+                                <div class="row ms-2 me-2   justify-content-between text-center">
+                                    <div class="col-md-5 rounded border border-info border-2 p-1 ">
+                                        <img src="../assets/image/fly.png" width="100PX" height="120PX">
+                                        <p class="card-text">Flight Ticket</p>
+                                    </div>
+                                    <div class="col-md-5 rounded border border-info border-2 p-1 ">
+                                        <img src="../assets/image/bus.png" width="100px" height="120">
+                                        <p class="card-text">Bus Ticket</p>
+                                    </div>
+
+                                    <div class="col-md-5 mt-2  border-info rounded border border-2 p-1 ">
+                                        <img src="../assets/image/train.png" width="100px" height="120">
+                                        <p class="card-text">Train Ticket</p>
+                                    </div>
+                                    <div class="col-md-5 rounded  border  border-info border-2 mt-2 p-1">
+                                        <img id="snacks" src="../assets/image/product.png" width="100px" height="120">
+                                        <p class="card-text">Travel Safe</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <p class="text-info text-center">Explore more from Amazon Pay</p>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+        <!-- module for add to cart to show -->
+
+        <div class="modal fade" id="cartitems">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Your Cart Items</h3>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Preview</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody">
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" data-bs-dismiss="modal">OK</button>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- end of module -->
+
+    </section>
+    <div class="container-fluid bg-secondary mb-3 p-4">
+        <div class="row">
+            <img src="../assets/image/amazon bootom logo.png">
+        </div>
+
+    </div>
+
+    <!-- footer -->
+    <footer>
+
+
+
+
+
+
+
+
+        <div class="container-fluid bg-dark">
+            <div class="row">
+                <button class="btn btn-info p-2 text-white"><b>Back To Top</b></button>
+            </div>
+            <div class="row ms-5 p-3 ">
+                <div class="col-md-3  text-break text-left text-white mt-5 p-1">
+                    <h5 class="mb-3"><b> Connect with Us</b> </h5>
+                    <h6>Facebook</h6>
+                    <h6>Twitter</h6>
+                    <h6> Instagram</h6>
+
+
+
+
+
+                </div>
+
+                <div class="col-md-3 text-white mt-5 p-1 text-break">
+                    <h5 class="mb-3"><b>Get to Know Us</b> </h5>
+                    <h6>About Us</h6>
+                    <h6>Careers</h6>
+                    <h6> Press Releases</h6>
+                    <h6>Amazon Cares</h6>
+                    <h6>Gift a Smile</h6>
+
+
+                </div>
+                <div class="col-md-3 text-white text-left mt-5 p-1 text-break">
+                    <h5 class="mb-3"><b>Make Money with Us</b> </h5>
+                    <h6> Sell on Amazon</h6>
+                    <h6>Sell under Amazon Accelerator</h6>
+                    <h6> Amazon Global Selling</h6>
+                    <h6>Become an Affiliate</h6>
+                    <h6>Fulfilment by Amazon</h6>
+                    <h6> Advertise Your Products</h6>
+                    <h6> Amazon Pay on Merchant</h6>
+
+
+
+
+
+
+
+
+
+                </div>
+                <div class="col-md-3 text-white text-left mt-5 p-1 pe-1 ps-5 text-break">
+                    <h5 class="mb-3"><b> Let Us Help You</b> </h5>
+                    <h6> COVID-19 and Amazon</h6>
+                    <h6>Sell under Amazon Accelerator</h6>
+                    <h6>Your Account</h6>
+                    <h6> Returns Centre</h6>
+                    <h6> 100% Purchase Protection</h6>
+                    <h6> Amazon App Download</h6>
+                    <h6> Amazon Assistant Download</h6>
+                    <h6> Help
+                    </h6>
+
+
+
+
+
+
+
+
+
+                </div>
+                <hr id="line">
+
+            </div>
+            <p class="text-white text-center mt-3 pb-5"> Conditions of Use & Sale &nbsp; Privacy Notice &nbsp;
+                Interest-Based Ads &nbsp; © 1996-2021, &nbsp; Amazon.com, Inc. or its affiliates</p>
+
+
+
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="amazon1.js"></script>
+</body>
+
+</html>

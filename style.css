@@ -1,0 +1,31 @@
+body{
+    background-color: rgba(49, 166, 209, 0.5);
+}
+
+
+#sign{
+    font-size: 20px;
+    
+}
+#snacks{
+    overflow: hidden;
+}
+#midsection{
+    background-color:rgba(37, 149, 190, 0.5);
+    box-shadow: rgba(37, 149, 190, 0.5);
+}
+
+#bottompart{
+    background:#232F3E;
+}
+#line{
+    color: grey;
+    height:3px;
+    width: 100%;
+    text-align: justify;
+}
+#imglogo{
+    border: 1px solid black;
+    border-radius: 10px;
+
+}
